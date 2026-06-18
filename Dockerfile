@@ -1,6 +1,13 @@
 FROM rstudio/plumber:latest
 
-RUN R -e "install.packages(c('quantmod','tidyverse','jsonlite','quadprog'), repos='https://cloud.r-project.org')"
+RUN apt-get update && apt-get install -y \
+    libfontconfig1-dev \
+    libfreetype6-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN R -e "install.packages(c('quantmod','dplyr','jsonlite','quadprog'), repos='https://cloud.r-project.org')"
 
 COPY api_portafolio.R /app/api_portafolio.R
 
