@@ -4,7 +4,7 @@
 # ══════════════════════════════════════════════════════════════════════════
 
 # INSTALACIÓN DE PAQUETES
-paquetes <- c("plumber","quantmod","tidyverse","jsonlite","quadprog")
+paquetes <- c("plumber","quantmod","dplyr","jsonlite","quadprog")
 for (p in paquetes) {
   if (!require(p, character.only = TRUE, quietly = TRUE)) {
     install.packages(p, repos = "https://cloud.r-project.org")
